@@ -3,255 +3,462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Srinivas Bandaru | Analyst Portfolio</title>
+    <title>Srinivas Bandaru | Data & Systems Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #2563eb;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text: #334155;
-            --heading: #0f172a;
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --surface-hover: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.15);
+            --accent: #818cf8;
+            --border: #334155;
+            --radius: 12px;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg);
-            color: var(--text);
+            color: var(--text-main);
             line-height: 1.6;
-            padding: 2rem 1rem;
         }
 
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Container */
         .container {
-            max-width: 900px;
+            max-width: 1050px;
             margin: 0 auto;
+            padding: 3rem 1.5rem;
         }
 
-        header {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
+        /* Hero Banner */
+        .hero {
             text-align: center;
+            padding: 4rem 1.5rem;
+            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+            border-radius: var(--radius);
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
         }
 
-        header h1 {
-            color: var(--heading);
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(to right, #f8fafc, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.tagline {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Highlights Grid */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .stat-card .number {
             font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-card .label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-main);
+        }
+
+        section h2 i {
+            color: var(--primary);
+        }
+
+        /* Cards Layout */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
             margin-bottom: 0.5rem;
         }
 
-        header p.subtitle {
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .card-sub {
             color: var(--accent);
-            font-size: 1.1rem;
             font-weight: 600;
+            font-size: 0.95rem;
             margin-bottom: 1rem;
         }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
+        .card-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background: rgba(148, 163, 184, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
         }
 
-        .contact-links a {
-            color: var(--accent);
-            text-decoration: none;
+        ul.points {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.points li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-muted);
+        }
+
+        ul.points li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Skill Pills */
+        .skills-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .skill-category {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .pill {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
             font-weight: 500;
         }
 
-        .contact-links a:hover {
-            text-decoration: underline;
-        }
-
-        section {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-        }
-
-        h2 {
-            color: var(--heading);
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--bg);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .job, .edu {
-            margin-bottom: 1.5rem;
-        }
-
-        .job:last-child, .edu:last-child {
-            margin-bottom: 0;
-        }
-
-        .title-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-        }
-
-        .title-row h3 {
-            color: var(--heading);
-            font-size: 1.15rem;
-        }
-
-        .title-row .date {
-            color: #64748b;
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
             font-size: 0.9rem;
         }
 
-        .company {
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        ul {
-            list-style-type: disc;
-            margin-left: 1.25rem;
-        }
-
-        li {
-            margin-bottom: 0.4rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .skill-card {
-            background: var(--bg);
-            padding: 1rem;
-            border-radius: 8px;
-        }
-
-        .skill-card h4 {
-            color: var(--heading);
-            margin-bottom: 0.5rem;
-        }
-
-        @media (max-width: 600px) {
-            body { padding: 1rem 0.5rem; }
-            header, section { padding: 1.5rem; }
-            .title-row { flex-direction: column; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav ul { display: none; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <nav>
+        <a href="#" class="logo">Srinivas Bandaru</a>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+        </ul>
+    </nav>
 
-    <header>
-        <h1>Srinivas Bandaru</h1>
-        <p class="subtitle">Analyst & Data Professional</p>
-        <p>Denton, TX | +1 940-465-9812 | srinivasbandaru.bs@gmail.com</p>
-        <div class="contact-links">
-            <a href="https://www.linkedin.com/in/srinivasbandaru5/" target="_blank">LinkedIn Profile</a>
-            <a href="https://srinivasbandaru5.github.io/website/" target="_blank">Portfolio Site</a>
-        </div>
-    </header>
+    <div class="container">
 
-    <section>
-        <h2>Professional Summary</h2>
-        <p>Detail-oriented Analyst with experience in infrastructure services, system administration, data modeling, and predictive analytics. Skilled in Python, SQL, Excel, and cloud platforms, with a strong background in optimizing data workflows, maintaining 99.9% uptime across large-scale server networks, and collaborating across engineering teams to resolve complex technical issues.</p>
-    </section>
-
-    <section>
-        <h2>Work Experience</h2>
-
-        <div class="job">
-            <div class="title-row">
-                <h3>Analyst II – Infrastructure Services</h3>
-                <span class="date">May 2023 – July 2024</span>
-            </div>
-            <div class="company">DXC Technology | Chennai, India</div>
-            <ul>
-                <li>Managed network infrastructure for 100,000+ servers for the AT&T Argus project, maintaining 99.9% system uptime.</li>
-                <li>Automated data backup routines, cutting overall backup execution time by 30%.</li>
-                <li>Configured and optimized Linux OS environments, enhancing performance and lowering system downtime by 20%.</li>
-                <li>Partnered with Database Administration and NOC teams to resolve 80+ critical technical incidents.</li>
-                <li>Received DXC Champs Awards (Q2 & Q4 2024) for exceptional infrastructure support and service.</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <div class="title-row">
-                <h3>Data Science Intern</h3>
-                <span class="date">June 2021 – August 2021</span>
-            </div>
-            <div class="company">1Stop | Remote</div>
-            <ul>
-                <li>Executed exploratory data analysis (EDA) using SQL and Python (Pandas, NumPy, Matplotlib) on large datasets.</li>
-                <li>Analyzed customer behavior trends to build segmentation models for data-driven decisions.</li>
-                <li>Developed predictive modeling workflows to forecast future user actions.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <h2>Technical Competencies</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h4>Languages & Data</h4>
-                <p>Python (Pandas, NumPy, Scikit-Learn, Matplotlib), SQL, Excel Data Modeling</p>
-            </div>
-            <div class="skill-card">
-                <h4>Cloud & Platforms</h4>
-                <p>Linux/UNIX Administration, Microsoft Azure (AZ-900), Oracle Cloud Infrastructure</p>
-            </div>
-            <div class="skill-card">
-                <h4>Core Skills</h4>
-                <p>Exploratory Data Analysis, Process Automation, System Uptime & Incident Resolution</p>
+        <!-- Hero Section -->
+        <div class="hero" id="about">
+            <h1>Srinivas Bandaru</h1>
+            <p class="tagline">Data & Infrastructure Analyst specializing in Python, SQL, Azure Cloud, and automated data workflows.</p>
+            <div class="btn-group">
+                <a href="mailto:srinivasbandaru.bs@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+                <a href="https://www.linkedin.com/in/srinivasbandaru5/" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://srinivasbandaru5.github.io/website/" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-briefcase"></i> Main Site</a>
             </div>
         </div>
-    </section>
 
-    <section>
-        <h2>Education & Certifications</h2>
-
-        <div class="edu">
-            <div class="title-row">
-                <h3>Master of Science in Data Analytics</h3>
-                <span class="date">Expected Dec 2025</span>
+        <!-- Metric Highlights -->
+        <div class="highlights">
+            <div class="stat-card">
+                <div class="number">99.9%</div>
+                <div class="label">Infrastructure Uptime Maintained</div>
             </div>
-            <div class="company">Webster University</div>
-        </div>
-
-        <div class="edu">
-            <div class="title-row">
-                <h3>B.Tech in Electronics & Communication Engineering</h3>
-                <span class="date">June 2022</span>
+            <div class="stat-card">
+                <div class="number">100k+</div>
+                <div class="label">Servers Administered</div>
             </div>
-            <div class="company">Bonam Venkata Chalamayya Engineering College</div>
+            <div class="stat-card">
+                <div class="number">30%</div>
+                <div class="label">Data Backup Time Reduced</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">80+</div>
+                <div class="label">Critical Issues Resolved</div>
+            </div>
         </div>
 
-        <div style="margin-top: 1rem;">
-            <h3>Certifications</h3>
-            <ul>
-                <li>Microsoft Azure Fundamentals (AZ-900)</li>
-                <li>Oracle Cloud Infrastructure Foundations Associate (2022, 2023)</li>
-                <li>Python for Machine Learning – Great Learning</li>
-            </ul>
-        </div>
-    </section>
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2><i class="fa-solid fa-code"></i> Technical Skills</h2>
+            <div class="skills-wrapper">
+                <div class="skill-category">
+                    <h3>Programming & Analytics</h3>
+                    <div class="pills">
+                        <span class="pill">Python</span>
+                        <span class="pill">Pandas</span>
+                        <span class="pill">NumPy</span>
+                        <span class="pill">Scikit-Learn</span>
+                        <span class="pill">Matplotlib</span>
+                        <span class="pill">SQL</span>
+                        <span class="pill">Excel Modeling</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & Systems</h3>
+                    <div class="pills">
+                        <span class="pill">Linux/UNIX Admin</span>
+                        <span class="pill">Storage Management</span>
+                        <span class="pill">Microsoft Azure (AZ-900)</span>
+                        <span class="pill">Oracle Cloud</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Core Competencies</h3>
+                    <div class="pills">
+                        <span class="pill">Exploratory Data Analysis</span>
+                        <span class="pill">Predictive Modeling</span>
+                        <span class="pill">Process Automation</span>
+                        <span class="pill">Cross-Functional Collaboration</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-</div>
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2><i class="fa-solid fa-briefcase"></i> Work Experience</h2>
 
-</body>
-</html>
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Analyst II – Infrastructure Services</div>
+                        <div class="card-sub">DXC Technology | Chennai, India</div>
+                    </div>
+                    <span class="card-date">May 2023 – July 2024</span>
+                </div>
+                <ul class="points">
+                    <li>Managed network infrastructure of over 100,000 servers for the AT&T Argus enterprise project, maintaining 99.9% uptime SLA.</li>
+                    <li>Automated data backup routines using scripting techniques, cutting backup execution duration by 30%.</li>
+                    <li>Configured and upgraded Linux operating systems, boosting overall system efficiency and reducing downtime by 20%.</li>
+                    <li>Partnered with Database Administration and NOC teams to resolve 80+ critical system stability incidents.</li>
+                    <li>Awarded DXC Champs Awards for Q2 and Q4 2024 for exceptional system administration performance.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Data Science Intern</div>
+                        <div class="card-sub">1Stop | Remote</div>
+                    </div>
+                    <span class="card-date">June 2021 – August 2021</span>
+                </div>
+                <ul class="points">
+                    <li>Analyzed multi-source datasets with SQL and Python (Pandas, NumPy, Matplotlib) to discover actionable trends and patterns.</li>
+                    <li>Delivered customer segmentation and behavioral insight reports to guide strategic business decisions.</li>
+                    <li>Engineered predictive modeling workflows to accurately forecast user engagement metrics.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2><i class="fa-solid fa-graduation-cap"></i> Education & Certifications</h2>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Master of Science in Data Analytics</div>
+                        <div class="card-sub">Webster University | San Antonio, TX</div>
+                    </div>
+                    <span class="card-date">Expected Dec 2025</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Bachelor of Technology – ECE</div>
+                        <div class="card-sub">Bonam Venkata Chalamayya Engineering College | AP, India</div>
+                    </div>
+                    <span class="card-date">June 2022</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title" style="margin-bottom: 1rem;">Certifications</div>
+                <div class="pills">
+                    <span class="pill"><i class="fa-solid fa-certificate"></i> Microsoft Azure AZ-900 (2023)</span>
+                    <span class="pill"><i class="fa-solid fa-certificate"></i> Oracle Cloud Infrastructure Foundations Associate (2022 & 2023)</span>
+                    <span class="pill"><i class="fa-solid fa-certificate"></i> Python for Machine Learning (Great Learning)</span>
