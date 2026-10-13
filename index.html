@@ -13,10 +13,11 @@
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --primary: #38bdf8;
-            --primary-glow: rgba(56, 189, 248, 0.15);
+            --primary-glow: rgba(56, 189, 248, 0.2);
             --accent: #818cf8;
             --border: #334155;
             --radius: 12px;
+            --gold: #fbbf24;
         }
 
         * {
@@ -33,7 +34,6 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
         nav {
             position: sticky;
             top: 0;
@@ -72,18 +72,16 @@
             color: var(--primary);
         }
 
-        /* Container */
         .container {
             max-width: 1050px;
             margin: 0 auto;
             padding: 3rem 1.5rem;
         }
 
-        /* Hero Banner */
         .hero {
             text-align: center;
             padding: 4rem 1.5rem;
-            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
             border-radius: var(--radius);
             margin-bottom: 3rem;
             border: 1px solid var(--border);
@@ -124,6 +122,7 @@
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s;
+            cursor: pointer;
         }
 
         .btn-primary {
@@ -147,7 +146,6 @@
             transform: translateY(-2px);
         }
 
-        /* Highlights Grid */
         .highlights {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -181,7 +179,6 @@
             color: var(--text-muted);
         }
 
-        /* Section Styling */
         section {
             margin-bottom: 3.5rem;
         }
@@ -199,14 +196,54 @@
             color: var(--primary);
         }
 
-        /* Cards Layout */
+        /* Accomplishments Grid */
+        .accomplishments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .acc-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .acc-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(251, 191, 36, 0.15);
+        }
+
+        .acc-card i.acc-icon {
+            font-size: 1.75rem;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .acc-card h3 {
+            font-size: 1.15rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .acc-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Standard Cards Layout */
         .card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.75rem;
             margin-bottom: 1.5rem;
-            transition: border-color 0.2s;
+            transition: all 0.2s;
         }
 
         .card:hover {
@@ -262,7 +299,111 @@
             font-weight: bold;
         }
 
-        /* Skill Pills */
+        /* Interactive Certifications Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .cert-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px var(--primary-glow);
+        }
+
+        .cert-card i.cert-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .cert-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-card .click-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Modal Overlay */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            max-width: 700px;
+            width: 100%;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        .cert-preview {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin: 1.25rem 0;
+            border: 1px solid var(--border);
+            background: #ffffff;
+        }
+
+        /* Skills Pills */
         .skills-wrapper {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -298,7 +439,6 @@
             font-weight: 500;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 2rem 0;
@@ -319,8 +459,10 @@
         <a href="#" class="logo">Srinivas Bandaru</a>
         <ul>
             <li><a href="#about">About</a></li>
+            <li><a href="#accomplishments">Accomplishments</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#education">Education</a></li>
         </ul>
     </nav>
@@ -334,7 +476,6 @@
             <div class="btn-group">
                 <a href="mailto:srinivasbandaru.bs@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Contact Me</a>
                 <a href="https://www.linkedin.com/in/srinivasbandaru5/" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="https://srinivasbandaru5.github.io/website/" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-briefcase"></i> Main Site</a>
             </div>
         </div>
 
@@ -342,7 +483,7 @@
         <div class="highlights">
             <div class="stat-card">
                 <div class="number">99.9%</div>
-                <div class="label">Infrastructure Uptime Maintained</div>
+                <div class="label">Infrastructure Uptime</div>
             </div>
             <div class="stat-card">
                 <div class="number">100k+</div>
@@ -350,13 +491,37 @@
             </div>
             <div class="stat-card">
                 <div class="number">30%</div>
-                <div class="label">Data Backup Time Reduced</div>
+                <div class="label">Backup Time Reduced</div>
             </div>
             <div class="stat-card">
                 <div class="number">80+</div>
-                <div class="label">Critical Issues Resolved</div>
+                <div class="label">Critical Issues Solved</div>
             </div>
         </div>
+
+        <!-- Accomplishments & Awards Section -->
+        <section id="accomplishments">
+            <h2><i class="fa-solid fa-trophy" style="color:var(--gold);"></i> Major Accomplishments & Honors</h2>
+            <div class="accomplishments-grid">
+                <div class="acc-card">
+                    <i class="fa-solid fa-award acc-icon"></i>
+                    <h3>DXC Champs Awards (Q2 & Q4 2024)</h3>
+                    <p>Consistently recognized by DXC leadership for exceptional performance and technical excellence in system administration and server infrastructure management.</p>
+                </div>
+
+                <div class="acc-card">
+                    <i class="fa-solid fa-thumbs-up acc-icon"></i>
+                    <h3>AT&T Client Commendations</h3>
+                    <p>Received multiple formal commendations from AT&T enterprise clients and management for rapid incident response times and high-quality resolution of complex server outages.</p>
+                </div>
+
+                <div class="acc-card">
+                    <i class="fa-solid fa-bolt acc-icon"></i>
+                    <h3>30% Data Backup Efficiency Gain</h3>
+                    <p>Designed and deployed automated backup processes that eliminated manual intervention and reduced execution runtime by 30% across large-scale Linux server networks.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- Skills Section -->
         <section id="skills">
@@ -432,9 +597,40 @@
             </div>
         </section>
 
+        <!-- Interactive Certifications Section -->
+        <section id="certifications">
+            <h2><i class="fa-solid fa-certificate"></i> Verified Certifications <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">(Click to view verification)</span></h2>
+            
+            <div class="cert-grid">
+                <!-- Azure AZ-900 -->
+                <div class="cert-card" onclick="openModal('Microsoft Azure Fundamentals (AZ-900)', 'Issued June 2023', 'azure-az900.pdf')">
+                    <i class="fa-brands fa-microsoft cert-icon"></i>
+                    <h3>Microsoft Azure (AZ-900)</h3>
+                    <p>Azure Cloud Concepts, Core Services, & Security Controls</p>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                </div>
+
+                <!-- Oracle Cloud -->
+                <div class="cert-card" onclick="openModal('Oracle Cloud Infrastructure Associate', 'Issued 2022 & 2023', 'oracle-cloud.pdf')">
+                    <i class="fa-solid fa-database cert-icon"></i>
+                    <h3>Oracle Cloud Associate</h3>
+                    <p>OCI Core Services, Networking, & Cloud Architecture</p>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                </div>
+
+                <!-- Python ML -->
+                <div class="cert-card" onclick="openModal('Python for Machine Learning', 'Issued by Great Learning', 'python-ml.pdf')">
+                    <i class="fa-brands fa-python cert-icon"></i>
+                    <h3>Python for Machine Learning</h3>
+                    <p>Data Modeling, Scikit-Learn Algorithms, & EDA</p>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Education Section -->
         <section id="education">
-            <h2><i class="fa-solid fa-graduation-cap"></i> Education & Certifications</h2>
+            <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
 
             <div class="card">
                 <div class="card-header">
@@ -455,10 +651,58 @@
                     <span class="card-date">June 2022</span>
                 </div>
             </div>
+        </section>
 
-            <div class="card">
-                <div class="card-title" style="margin-bottom: 1rem;">Certifications</div>
-                <div class="pills">
-                    <span class="pill"><i class="fa-solid fa-certificate"></i> Microsoft Azure AZ-900 (2023)</span>
-                    <span class="pill"><i class="fa-solid fa-certificate"></i> Oracle Cloud Infrastructure Foundations Associate (2022 & 2023)</span>
-                    <span class="pill"><i class="fa-solid fa-certificate"></i> Python for Machine Learning (Great Learning)</span>
+    </div>
+
+    <!-- Modal Popup for Certificates -->
+    <div class="modal" id="certModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle" style="color:var(--text-main); font-size:1.4rem;">Certificate Title</h3>
+            <p id="modalSub" style="color:var(--accent); font-size:0.95rem; margin-top:0.25rem;">Issuer Details</p>
+            
+            <div id="modalBody"></div>
+
+            <div style="margin-top:1rem;">
+                <a id="modalDownloadLink" href="#" target="_blank" class="btn btn-primary">
+                    <i class="fa-solid fa-external-link"></i> Open Original Document
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Srinivas Bandaru. Built with HTML, CSS & GitHub Pages.</p>
+    </footer>
+
+    <script>
+        function openModal(title, sub, fileUrl) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalSub').innerText = sub;
+            document.getElementById('modalDownloadLink').href = fileUrl;
+
+            const modalBody = document.getElementById('modalBody');
+            
+            if (fileUrl.toLowerCase().endsWith('.pdf')) {
+                modalBody.innerHTML = `<embed src="${fileUrl}" type="application/pdf" class="cert-preview" height="350px" />`;
+            } else {
+                modalBody.innerHTML = `<img src="${fileUrl}" alt="${title}" class="cert-preview" />`;
+            }
+
+            document.getElementById('certModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('certModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('certModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
