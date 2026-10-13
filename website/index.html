@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srinivas Bandaru | Analyst & Data Professional</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #334155;
+            --heading: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            color: var(--heading);
+            font-size: 2.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p.subtitle {
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: var(--heading);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--bg);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .job, .edu {
+            margin-bottom: 1.5rem;
+        }
+
+        .job:last-child, .edu:last-child {
+            margin-bottom: 0;
+        }
+
+        .title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .title-row h3 {
+            color: var(--heading);
+            font-size: 1.15rem;
+        }
+
+        .title-row .date {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .company {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: var(--bg);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .skill-card h4 {
+            color: var(--heading);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.5rem; }
+            header, section { padding: 1.5rem; }
+            .title-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Srinivas Bandaru</h1>
+        <p class="subtitle">Analyst & Data Professional</p>
+        <p>Denton, TX | +1 940-465-9812 | srinivasbandaru.bs@gmail.com</p>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/srinivasbandaru5/" target="_blank">LinkedIn Profile</a>
+            <a href="https://srinivasbandaru5.github.io/website/" target="_blank">Portfolio Link</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Professional Summary</h2>
+        <p>Detail-oriented Analyst with extensive experience in infrastructure services, system administration, data modeling, and predictive analytics. Skilled in Python, SQL, Excel, and cloud infrastructure, with a strong background in optimizing data workflows, maintaining 99.9% uptime across large-scale server networks, and collaborating across engineering teams to solve complex technical issues.</p>
+    </section>
+
+    <section>
+        <h2>Work Experience</h2>
+
+        <div class="job">
+            <div class="title-row">
+                <h3>Analyst II – Infrastructure Services</h3>
+                <span class="date">May 2023 – July 2024</span>
+            </div>
+            <div class="company">DXC Technology | Chennai, India</div>
+            <ul>
+                <li>Managed network infrastructure for 100,000+ servers for the AT&T Argus project, maintaining 99.9% system uptime.</li>
+                <li>Automated data backup routines, cutting overall backup execution time by 30%.</li>
+                <li>Configured and optimized Linux OS environments, enhancing performance and lowering system downtime by 20%.</li>
+                <li>Partnered with Database Administration and NOC teams to resolve 80+ critical technical incidents.</li>
+                <li>Received DXC Champs Awards (Q2 & Q4 2024) for exceptional infrastructure support and service.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="title-row">
+                <h3>Data Science Intern</h3>
+                <span class="date">June 2021 – August 2021</span>
+            </div>
+            <div class="company">1Stop | Remote</div>
+            <ul>
+                <li>Executed exploratory data analysis (EDA) using SQL and Python (Pandas, NumPy, Matplotlib) on large datasets.</li>
+                <li>Analyzed customer behavior trends to build segmentation models for data-driven decisions.</li>
+                <li>Developed predictive modeling workflows to forecast future user actions.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Technical Competencies</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h4>Languages & Data</h4>
+                <p>Python (Pandas, NumPy, Scikit-Learn, Matplotlib), SQL, Excel Data Modeling</p>
+            </div>
+            <div class="skill-card">
+                <h4>Cloud & Platforms</h4>
+                <p>Linux/UNIX Administration, Microsoft Azure (AZ-900), Oracle Cloud Infrastructure</p>
+            </div>
+            <div class="skill-card">
+                <h4>Core Skills</h4>
+                <p>Exploratory Data Analysis, Process Automation, System Uptime & Incident Resolution</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education & Certifications</h2>
+
+        <div class="edu">
+            <div class="title-row">
+                <h3>Master of Science in Data Analytics / Data Science</h3>
+                <span class="date">Expected Dec 2025</span>
+            </div>
+            <div class="company">Webster University / UT Arlington</div>
+        </div>
+
+        <div class="edu">
+            <div class="title-row">
+                <h3>B.Tech in Electronics & Communication Engineering</h3>
+                <span class="date">June 2022</span>
+            </div>
+            <div class="company">Bonam Venkata Chalamayya Engineering College</div>
+        </div>
+
+        <div style="margin-top: 1rem;">
+            <h3>Certifications</h3>
+            <ul>
+                <li>Microsoft Azure Fundamentals (AZ-900)</li>
+                <li>Oracle Cloud Infrastructure Foundations Associate (2022, 2023)</li>
+                <li>Python for Machine Learning – Great Learning</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
