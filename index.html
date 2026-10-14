@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Srinivas Bandaru | Data & Systems Analyst</title>
+    <title>Srinivas Bandaru | Data & Business Analyst</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -196,7 +196,7 @@
             color: var(--primary);
         }
 
-        /* Accomplishments Grid */
+        /* Accomplishments Cards */
         .accomplishments-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -209,7 +209,8 @@
             border-radius: var(--radius);
             padding: 1.5rem;
             position: relative;
-            transition: all 0.2s ease;
+            cursor: pointer;
+            transition: all 0.25s ease;
         }
 
         .acc-card:hover {
@@ -234,6 +235,16 @@
         .acc-card p {
             color: var(--text-muted);
             font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .acc-card .click-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
         /* Standard Cards Layout */
@@ -299,7 +310,7 @@
             font-weight: bold;
         }
 
-        /* Interactive Certifications Grid */
+        /* Certifications Grid */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -313,8 +324,6 @@
             padding: 1.5rem;
             cursor: pointer;
             transition: all 0.25s ease;
-            position: relative;
-            overflow: hidden;
         }
 
         .cert-card:hover {
@@ -371,7 +380,7 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            max-width: 700px;
+            max-width: 750px;
             width: 100%;
             padding: 2rem;
             position: relative;
@@ -395,15 +404,13 @@
 
         .cert-preview {
             width: 100%;
-            max-height: 400px;
-            object-fit: contain;
+            height: 400px;
             border-radius: 8px;
             margin: 1.25rem 0;
             border: 1px solid var(--border);
             background: #ffffff;
         }
 
-        /* Skills Pills */
         .skills-wrapper {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -472,7 +479,7 @@
         <!-- Hero Section -->
         <div class="hero" id="about">
             <h1>Srinivas Bandaru</h1>
-            <p class="tagline">Data & Infrastructure Analyst specializing in Python, SQL, Azure Cloud, and automated data workflows.</p>
+            <p class="tagline">Data & Business Analyst specializing in SQL, PostgreSQL, MS SQL Server, Power BI, Python, and Database Architecture.</p>
             <div class="btn-group">
                 <a href="mailto:srinivasbandaru.bs@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Contact Me</a>
                 <a href="https://www.linkedin.com/in/srinivasbandaru5/" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
@@ -482,79 +489,90 @@
         <!-- Metric Highlights -->
         <div class="highlights">
             <div class="stat-card">
-                <div class="number">99.9%</div>
-                <div class="label">Infrastructure Uptime</div>
+                <div class="number">800+</div>
+                <div class="label">Tickets Closed (0 Errors)</div>
             </div>
             <div class="stat-card">
-                <div class="number">100k+</div>
-                <div class="label">Servers Administered</div>
+                <div class="number">100%</div>
+                <div class="label">SLA TTR/TTO Compliance</div>
             </div>
             <div class="stat-card">
                 <div class="number">30%</div>
                 <div class="label">Backup Time Reduced</div>
             </div>
             <div class="stat-card">
-                <div class="number">80+</div>
-                <div class="label">Critical Issues Solved</div>
+                <div class="number">20%</div>
+                <div class="label">Downtime Reduced</div>
             </div>
         </div>
 
         <!-- Accomplishments & Awards Section -->
         <section id="accomplishments">
-            <h2><i class="fa-solid fa-trophy" style="color:var(--gold);"></i> Major Accomplishments & Honors</h2>
+            <h2><i class="fa-solid fa-trophy" style="color:var(--gold);"></i> Major Accomplishments & Honors <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">(Click card to view original document)</span></h2>
             <div class="accomplishments-grid">
-                <div class="acc-card">
+                
+                <div class="acc-card" onclick="openModal('DXC Champs Award – FY24 Q4', 'DXC Technology Leadership Recognition', 'Srinivas Bandaru - Q4 Champs award.pdf')">
                     <i class="fa-solid fa-award acc-icon"></i>
-                    <h3>DXC Champs Awards (Q2 & Q4 2024)</h3>
-                    <p>Consistently recognized by DXC leadership for exceptional performance and technical excellence in system administration and server infrastructure management.</p>
+                    <h3>DXC Champs Award (FY24 Q4)</h3>
+                    <p>Recognized for extraordinary contributions, driving customer delight, and establishing service excellence in IT delivery.</p>
+                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Award Document</span>
                 </div>
 
-                <div class="acc-card">
-                    <i class="fa-solid fa-thumbs-up acc-icon"></i>
-                    <h3>AT&T Client Commendations</h3>
-                    <p>Received multiple formal commendations from AT&T enterprise clients and management for rapid incident response times and high-quality resolution of complex server outages.</p>
+                <div class="acc-card" onclick="openModal('DXC Champs Award – FY24 Q2', 'DXC Technology Leadership Recognition', 'Srinivas Bandaru - DXC Q2 Champs Award.pdf')">
+                    <i class="fa-solid fa-award acc-icon"></i>
+                    <h3>DXC Champs Award (FY24 Q2)</h3>
+                    <p>Awarded for outstanding system administration performance and commitment to high-impact account operations.</p>
+                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Award Document</span>
                 </div>
 
-                <div class="acc-card">
-                    <i class="fa-solid fa-bolt acc-icon"></i>
-                    <h3>30% Data Backup Efficiency Gain</h3>
-                    <p>Designed and deployed automated backup processes that eliminated manual intervention and reduced execution runtime by 30% across large-scale Linux server networks.</p>
+                <div class="acc-card" onclick="openModal('Year-End Review: Exceptional Impact Rating', 'DXC Technology Annual Performance Appraisal', 'Year-End_Overall_Category_and_Comments.pdf')">
+                    <i class="fa-solid fa-star acc-icon"></i>
+                    <h3>"Exceptional Impact" Performance Rating</h3>
+                    <p>Evaluated as exceeding all performance expectations for backlog reduction planning, 100% SLA compliance, and zero human errors across 800+ tickets.</p>
+                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Performance Review</span>
                 </div>
+
+                <div class="acc-card" onclick="openModal('Data Science Internship Completion', 'Plot My Data / 1Stop Projects', 'InternshipProjectCompletion.pdf')">
+                    <i class="fa-solid fa-diagram-project acc-icon"></i>
+                    <h3>Data Science Project Completion</h3>
+                    <p>Successfully delivered projects covering Parkinson's Disease detection, Performance prediction modeling, and Anomaly/Fake News detection.</p>
+                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Project Completion</span>
+                </div>
+
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- Technical Skills Section -->
         <section id="skills">
             <h2><i class="fa-solid fa-code"></i> Technical Skills</h2>
             <div class="skills-wrapper">
                 <div class="skill-category">
-                    <h3>Programming & Analytics</h3>
+                    <h3>SQL & Database Engineering</h3>
                     <div class="pills">
-                        <span class="pill">Python</span>
-                        <span class="pill">Pandas</span>
-                        <span class="pill">NumPy</span>
-                        <span class="pill">Scikit-Learn</span>
-                        <span class="pill">Matplotlib</span>
-                        <span class="pill">SQL</span>
-                        <span class="pill">Excel Modeling</span>
+                        <span class="pill">PostgreSQL</span>
+                        <span class="pill">Microsoft SQL Server 2019</span>
+                        <span class="pill">Relational Database Design</span>
+                        <span class="pill">ERD Modeling</span>
+                        <span class="pill">Query Optimization</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Cloud & Systems</h3>
+                    <h3>Analytics & BI Ecosystem</h3>
                     <div class="pills">
-                        <span class="pill">Linux/UNIX Admin</span>
-                        <span class="pill">Storage Management</span>
+                        <span class="pill">Google Analytics Certified</span>
+                        <span class="pill">Power Query</span>
+                        <span class="pill">PowerPivot & DAX</span>
+                        <span class="pill">Excel Solver</span>
+                        <span class="pill">Decision Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming & Cloud</h3>
+                    <div class="pills">
+                        <span class="pill">Python (Pandas, NumPy, Scikit-Learn)</span>
                         <span class="pill">Microsoft Azure (AZ-900)</span>
-                        <span class="pill">Oracle Cloud</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Core Competencies</h3>
-                    <div class="pills">
-                        <span class="pill">Exploratory Data Analysis</span>
-                        <span class="pill">Predictive Modeling</span>
-                        <span class="pill">Process Automation</span>
-                        <span class="pill">Cross-Functional Collaboration</span>
+                        <span class="pill">Oracle Cloud Infrastructure</span>
+                        <span class="pill">Linux/UNIX Admin</span>
                     </div>
                 </div>
             </div>
@@ -567,64 +585,129 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <div class="card-title">Analyst II – Infrastructure Services</div>
+                        <div class="card-title">Analyst II – Infrastructure & Systems Analytics</div>
                         <div class="card-sub">DXC Technology | Chennai, India</div>
                     </div>
                     <span class="card-date">May 2023 – July 2024</span>
                 </div>
                 <ul class="points">
-                    <li>Managed network infrastructure of over 100,000 servers for the AT&T Argus enterprise project, maintaining 99.9% uptime SLA.</li>
-                    <li>Automated data backup routines using scripting techniques, cutting backup execution duration by 30%.</li>
-                    <li>Configured and upgraded Linux operating systems, boosting overall system efficiency and reducing downtime by 20%.</li>
-                    <li>Partnered with Database Administration and NOC teams to resolve 80+ critical system stability incidents.</li>
-                    <li>Awarded DXC Champs Awards for Q2 and Q4 2024 for exceptional system administration performance.</li>
+                    <li>Rated <strong>"Exceptional Impact"</strong> for proactive backlog planning on the AT&T Argus account.</li>
+                    <li>Processed and closed <strong>800+ tickets</strong> (P2 through P6) with <strong>100% SLA compliance</strong> and zero human-error outages.</li>
+                    <li>Automated backup routines and data logging, reducing execution duration by <strong>30%</strong> and lowering downtime by <strong>20%</strong> across 100,000+ servers.</li>
+                    <li>Achieved 95% utilization and 92% billability while maintaining 100% compliance across operational standards.</li>
                 </ul>
             </div>
 
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <div class="card-title">Data Science Intern</div>
-                        <div class="card-sub">1Stop | Remote</div>
+                        <div class="card-title">Data Science & Business Analytics Intern</div>
+                        <div class="card-sub">1Stop / Plot My Data | Remote</div>
                     </div>
                     <span class="card-date">June 2021 – August 2021</span>
                 </div>
                 <ul class="points">
-                    <li>Analyzed multi-source datasets with SQL and Python (Pandas, NumPy, Matplotlib) to discover actionable trends and patterns.</li>
-                    <li>Delivered customer segmentation and behavioral insight reports to guide strategic business decisions.</li>
-                    <li>Engineered predictive modeling workflows to accurately forecast user engagement metrics.</li>
+                    <li>Analyzed multi-source datasets using SQL and Python (Pandas, NumPy, Matplotlib) to uncover customer behavioral patterns.</li>
+                    <li>Built predictive modeling workflows for performance forecasting and classification models for anomaly detection.</li>
+                    <li>Delivered customer segmentation reports to support data-driven business strategy.</li>
                 </ul>
             </div>
         </section>
 
-        <!-- Interactive Certifications Section -->
+        <!-- Certifications Section -->
         <section id="certifications">
-            <h2><i class="fa-solid fa-certificate"></i> Verified Certifications <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">(Click to view verification)</span></h2>
+            <h2><i class="fa-solid fa-certificate"></i> Verified Certifications <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">(Click card to view certificate)</span></h2>
             
             <div class="cert-grid">
-                <!-- Azure AZ-900 -->
-                <div class="cert-card" onclick="openModal('Microsoft Azure Fundamentals (AZ-900)', 'Issued June 2023', 'azure-az900.pdf')">
-                    <i class="fa-brands fa-microsoft cert-icon"></i>
-                    <h3>Microsoft Azure (AZ-900)</h3>
-                    <p>Azure Cloud Concepts, Core Services, & Security Controls</p>
+                
+                <!-- Google Analytics -->
+                <div class="cert-card" onclick="openModal('Google Analytics Certification', 'Google (Issued Jan 2026)', 'Google Analytics Certification_Srinivas Bandaru.pdf')">
+                    <i class="fa-brands fa-google cert-icon"></i>
+                    <h3>Google Analytics Certified</h3>
+                    <p>Web Analytics, User Behavior Tracking, & Measurement</p>
                     <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
-                <!-- Oracle Cloud -->
-                <div class="cert-card" onclick="openModal('Oracle Cloud Infrastructure Associate', 'Issued 2022 & 2023', 'oracle-cloud.pdf')">
+                <!-- Database Design -->
+                <div class="cert-card" onclick="openModal('Database Design', 'DataCamp (Issued Feb 2026)', 'Database design_Srinivas bandaru.pdf')">
                     <i class="fa-solid fa-database cert-icon"></i>
-                    <h3>Oracle Cloud Associate</h3>
-                    <p>OCI Core Services, Networking, & Cloud Architecture</p>
+                    <h3>Database Design</h3>
+                    <p>Data Modeling, Normalization, & Relational Architecture</p>
                     <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
-                <!-- Python ML -->
-                <div class="cert-card" onclick="openModal('Python for Machine Learning', 'Issued by Great Learning', 'python-ml.pdf')">
-                    <i class="fa-brands fa-python cert-icon"></i>
-                    <h3>Python for Machine Learning</h3>
-                    <p>Data Modeling, Scikit-Learn Algorithms, & EDA</p>
+                <!-- PostgreSQL -->
+                <div class="cert-card" onclick="openModal('Creating PostgreSQL Databases', 'DataCamp (Issued Nov 2025)', 'Srinivasb_Creating PostgreSQL Databases.pdf')">
+                    <i class="fa-solid fa-server cert-icon"></i>
+                    <h3>PostgreSQL Database Creation</h3>
+                    <p>PostgreSQL Schema Design, DDL/DML, & Database Mgmt</p>
                     <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
+
+                <!-- MS SQL Server -->
+                <div class="cert-card" onclick="openModal('Microsoft SQL Server 2019 Essential Training', 'LinkedIn Learning (Issued Oct 2025)', 'Srinivas Bandaru_CertificateOfCompletion_Microsoft SQL Server 2019 Essential Training.pdf')">
+                    <i class="fa-solid fa-database cert-icon"></i>
+                    <h3>MS SQL Server 2019</h3>
+                    <p>T-SQL Querying, Database Administration, & Storage</p>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                </div>
+
+                <!-- Learning Relational Databases -->
+                <div class="cert-card" onclick="openModal('Learning Relational Databases', 'LinkedIn Learning (Issued Oct 2025)', 'Srinivas Bandaru_CertificateOfCompletion_Learning Relational Databases.pdf')">
+                    <i class="fa-solid fa-network-wired cert-icon"></i>
+                    <h3>Learning Relational Databases</h3>
+                    <p>Relational Database Theory, Keys, & Normal Form</p>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                </div>
+
+                <!-- Business Analytics Foundations -->
+                <div class="cert-card" onclick="openModal('Business Analytics Foundations', 'LinkedIn Learning (Issued Jan 2026)', 'CertificateOfCompletion_Business Analytics Foundations Descriptive Exploratory and Explanatory Analytics (2).pdf')">
+                    <i class="fa-solid fa-chart-line cert-icon"></i>
+                    <h3>Business Analytics Foundations</h3>
+                    <p>Descriptive, Exploratory, and Explanatory Data Analytics</p>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                </div>
+
+                <!-- Excel Power Query -->
+                <div class="cert-card" onclick="openModal('Excel: Power Query for Beginners', 'LinkedIn Learning (Issued May 2026)', 'CertificateOfCompletion_Excel Power Query for Beginners 2021.pdf')">
+                    <i class="fa-solid fa-file-excel cert-icon"></i>
+                    <h3>Excel Power Query</h3>
+                    <p>Data Cleaning, Transformation, & Automated ETL Pipelines</p>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                </div>
+
+                <!-- Excel PowerPivot & DAX -->
+                <div class="cert-card" onclick="openModal('Excel BI: Power Pivot, DAX & Data Modeling', 'LinkedIn Learning (Issued May 2026)', 'CertificateOfCompletion_Excel Business Intelligence Power Pivot DAX and Data Modeling.pdf')">
+                    <i class="fa-solid fa-chart-pie cert-icon"></i>
+                    <h3>Excel PowerPivot & DAX</h3>
+                    <p>Complex Data Modeling, Measures, & BI Dashboards</p>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                </div>
+
+                <!-- Excel Solver -->
+                <div class="cert-card" onclick="openModal('Excel: Using Solver for Decision Analysis', 'LinkedIn Learning (Issued May 2026)', 'CertificateOfCompletion_Excel Using Solver for Decision Analysis.pdf')">
+                    <i class="fa-solid fa-calculator cert-icon"></i>
+                    <h3>Excel Solver for Decision Analysis</h3>
+                    <p>Optimization Models, Linear Programming, & Business Scenarios</p>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                </div>
+
+                <!-- OCI 2023 -->
+                <div class="cert-card" onclick="openModal('Oracle Cloud Infrastructure 2023 Certified Foundations Associate', 'Oracle Certified', 'OCI 2023 certified foundations associate- Oracle eCertificate (1).pdf')">
+                    <i class="fa-solid fa-cloud cert-icon"></i>
+                    <h3>Oracle Cloud Associate (OCI 2023)</h3>
+                    <p>OCI Infrastructure Architecture, Networking, & Security</p>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                </div>
+
+                <!-- OCI 2022 -->
+                <div class="cert-card" onclick="openModal('Oracle Cloud Infrastructure 2022 Certified Foundations Associate', 'Oracle Certified', 'OCI 2022 certified foundations associate eCertificate.pdf')">
+                    <i class="fa-solid fa-cloud cert-icon"></i>
+                    <h3>Oracle Cloud Associate (OCI 2022)</h3>
+                    <p>Cloud Foundation Concepts & Infrastructure Management</p>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                </div>
+
             </div>
         </section>
 
@@ -645,7 +728,7 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <div class="card-title">Bachelor of Technology – ECE</div>
+                        <div class="card-title">Bachelor of Technology – Electronics & Communication</div>
                         <div class="card-sub">Bonam Venkata Chalamayya Engineering College | AP, India</div>
                     </div>
                     <span class="card-date">June 2022</span>
@@ -655,18 +738,18 @@
 
     </div>
 
-    <!-- Modal Popup for Certificates -->
+    <!-- Modal Popup for PDF Documents -->
     <div class="modal" id="certModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
-            <h3 id="modalTitle" style="color:var(--text-main); font-size:1.4rem;">Certificate Title</h3>
-            <p id="modalSub" style="color:var(--accent); font-size:0.95rem; margin-top:0.25rem;">Issuer Details</p>
+            <h3 id="modalTitle" style="color:var(--text-main); font-size:1.3rem;">Document Title</h3>
+            <p id="modalSub" style="color:var(--accent); font-size:0.9rem; margin-top:0.25rem;">Details</p>
             
             <div id="modalBody"></div>
 
             <div style="margin-top:1rem;">
                 <a id="modalDownloadLink" href="#" target="_blank" class="btn btn-primary">
-                    <i class="fa-solid fa-external-link"></i> Open Original Document
+                    <i class="fa-solid fa-external-link"></i> Open PDF in New Tab
                 </a>
             </div>
         </div>
@@ -680,15 +763,13 @@
         function openModal(title, sub, fileUrl) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalSub').innerText = sub;
-            document.getElementById('modalDownloadLink').href = fileUrl;
+            
+            // Encode URI components to handle spaces in filenames correctly
+            const encodedUrl = encodeURIComponent(fileUrl).replace(/%2F/g, '/');
+            document.getElementById('modalDownloadLink').href = encodedUrl;
 
             const modalBody = document.getElementById('modalBody');
-            
-            if (fileUrl.toLowerCase().endsWith('.pdf')) {
-                modalBody.innerHTML = `<embed src="${fileUrl}" type="application/pdf" class="cert-preview" height="350px" />`;
-            } else {
-                modalBody.innerHTML = `<img src="${fileUrl}" alt="${title}" class="cert-preview" />`;
-            }
+            modalBody.innerHTML = `<embed src="${encodedUrl}" type="application/pdf" class="cert-preview" />`;
 
             document.getElementById('certModal').style.display = 'flex';
         }
