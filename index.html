@@ -7,16 +7,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg: #0f172a;
-            --surface: #1e293b;
-            --surface-hover: #334155;
+            --bg: #0b0f19;
+            --surface: #131b2e;
+            --surface-card: #1e293b;
+            --surface-hover: #2d3d59;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --primary: #38bdf8;
-            --primary-glow: rgba(56, 189, 248, 0.2);
-            --accent: #818cf8;
-            --border: #334155;
-            --radius: 12px;
+            --primary-glow: rgba(56, 189, 248, 0.3);
+            --accent-purple: #c084fc;
+            --accent-pink: #f472b6;
+            --accent-green: #34d399;
+            --border: rgba(255, 255, 255, 0.1);
+            --radius: 16px;
             --gold: #fbbf24;
         }
 
@@ -34,31 +37,37 @@
             line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 65%, rgba(192, 132, 252, 0.08) 0%, transparent 40%);
         }
 
+        /* Navbar */
         nav {
             position: sticky;
             top: 0;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(12px);
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             z-index: 100;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         nav .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-size: 1.35rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-decoration: none;
         }
 
         nav ul {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.75rem;
             list-style: none;
         }
 
@@ -67,131 +76,165 @@
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
-            transition: color 0.2s;
+            transition: all 0.2s;
         }
 
         nav a:hover {
             color: var(--primary);
+            text-shadow: 0 0 10px var(--primary-glow);
         }
 
         .container {
-            max-width: 1050px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 2rem 1.5rem 5rem 1.5rem;
+            padding: 3rem 1.5rem 6rem 1.5rem;
         }
 
+        /* Colorful Hero Banner */
         .hero {
             text-align: center;
-            padding: 3.5rem 1.5rem;
-            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
+            padding: 4.5rem 2rem;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(19, 27, 46, 0.9));
             border-radius: var(--radius);
-            margin-bottom: 2.5rem;
+            margin-bottom: 3.5rem;
             border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 60%);
+            pointer-events: none;
         }
 
         .hero h1 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-            background: linear-gradient(to right, #f8fafc, #38bdf8);
+            font-size: 3.25rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 30%, var(--primary) 70%, var(--accent-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p.tagline {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            max-width: 700px;
+            margin-bottom: 2rem;
+            max-width: 750px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
 
         .btn-group {
             display: flex;
-            gap: 1rem;
+            gap: 1.25rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 1.5rem;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
+            gap: 0.6rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: 10px;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all 0.25s ease;
             cursor: pointer;
+            font-size: 0.95rem;
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), #0284c7);
             color: #0f172a;
+            box-shadow: 0 4px 20px var(--primary-glow);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(56, 189, 248, 0.5);
         }
 
         .btn-secondary {
-            background: var(--surface);
+            background: rgba(255, 255, 255, 0.05);
             color: var(--text-main);
             border: 1px solid var(--border);
         }
 
         .btn-secondary:hover {
-            background: var(--surface-hover);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-3px);
         }
 
+        /* Metric Cards */
         .highlights {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.25rem;
-            margin-bottom: 3.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
         }
 
         .stat-card {
-            background: var(--surface);
+            background: rgba(30, 41, 59, 0.6);
             border: 1px solid var(--border);
-            padding: 1.5rem;
+            padding: 1.75rem 1.25rem;
             border-radius: var(--radius);
             text-align: center;
-            transition: transform 0.2s;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::top {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent-purple));
         }
 
         .stat-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             border-color: var(--primary);
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.15);
         }
 
         .stat-card .number {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
         }
 
         .stat-card .label {
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
+            font-weight: 500;
         }
 
         section {
-            margin-bottom: 3.5rem;
-            scroll-margin-top: 5rem;
+            margin-bottom: 4rem;
+            scroll-margin-top: 6rem;
         }
 
         section h2 {
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.85rem;
+            margin-bottom: 1.75rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.85rem;
             color: var(--text-main);
         }
 
@@ -199,67 +242,70 @@
             color: var(--primary);
         }
 
+        /* Accomplishments Grid */
         .accomplishments-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
         .acc-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(19, 27, 46, 0.8));
+            border: 1px solid rgba(251, 191, 36, 0.2);
             border-radius: var(--radius);
-            padding: 1.5rem;
-            position: relative;
+            padding: 1.75rem;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .acc-card:hover {
             border-color: var(--gold);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(251, 191, 36, 0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(251, 191, 36, 0.2);
         }
 
         .acc-card i.acc-icon {
-            font-size: 1.75rem;
+            font-size: 2rem;
             color: var(--gold);
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             display: block;
         }
 
         .acc-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--text-main);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
         }
 
         .acc-card p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.92rem;
+            margin-bottom: 1.25rem;
         }
 
         .acc-card .click-hint {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.5rem;
             color: var(--gold);
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.88rem;
+            font-weight: 700;
         }
 
+        /* Standard Experience Cards */
         .card {
-            background: var(--surface);
+            background: rgba(30, 41, 59, 0.6);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 1.75rem;
+            padding: 2rem;
             margin-bottom: 1.5rem;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
             border-color: var(--primary);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
         }
 
         .card-header {
@@ -267,27 +313,28 @@
             justify-content: space-between;
             align-items: flex-start;
             flex-wrap: wrap;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.3rem;
+            font-weight: 800;
             color: var(--text-main);
         }
 
         .card-sub {
-            color: var(--accent);
+            color: var(--primary);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 1rem;
         }
 
         .card-date {
             color: var(--text-muted);
-            font-size: 0.85rem;
-            background: rgba(148, 163, 184, 0.1);
-            padding: 0.25rem 0.75rem;
+            font-size: 0.88rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.85rem;
             border-radius: 20px;
         }
 
@@ -298,103 +345,113 @@
 
         ul.points li {
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.6rem;
+            padding-left: 1.6rem;
+            margin-bottom: 0.65rem;
             color: var(--text-muted);
         }
 
         ul.points li::before {
-            content: "▹";
+            content: "⚡";
             position: absolute;
             left: 0;
             color: var(--primary);
-            font-weight: bold;
+            font-size: 0.85rem;
         }
 
+        /* Certifications Grid */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
+            gap: 1.5rem;
         }
 
         .cert-card {
-            background: var(--surface);
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(19, 27, 46, 0.8));
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 1.5rem;
+            padding: 1.75rem;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
         }
 
         .cert-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 25px var(--primary-glow);
+            transform: translateY(-6px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 12px 35px rgba(192, 132, 252, 0.2);
         }
 
         .cert-card i.cert-icon {
-            font-size: 2rem;
-            color: var(--primary);
+            font-size: 2.25rem;
+            color: var(--accent-purple);
             margin-bottom: 1rem;
             display: block;
         }
 
         .cert-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-main);
             margin-bottom: 0.5rem;
         }
 
         .cert-card p {
             color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
+            font-size: 0.88rem;
+            margin-bottom: 1.25rem;
         }
 
         .cert-card .click-hint {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            color: var(--primary);
-            font-size: 0.85rem;
-            font-weight: 600;
+            gap: 0.5rem;
+            color: var(--accent-purple);
+            font-size: 0.88rem;
+            font-weight: 700;
         }
 
+        /* Skills Wrapper */
         .skills-wrapper {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
+            gap: 1.5rem;
         }
 
         .skill-category {
-            background: var(--surface);
+            background: rgba(30, 41, 59, 0.6);
             border: 1px solid var(--border);
-            padding: 1.5rem;
+            padding: 1.75rem;
             border-radius: var(--radius);
         }
 
         .skill-category h3 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+            font-size: 1.15rem;
+            margin-bottom: 1.25rem;
             color: var(--primary);
         }
 
         .pills {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
 
         .pill {
             background: rgba(56, 189, 248, 0.1);
             color: var(--primary);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: all 0.2s;
         }
 
+        .pill:hover {
+            background: var(--primary);
+            color: #0f172a;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        /* Modal Overlay */
         .modal {
             display: none;
             position: fixed;
@@ -402,31 +459,31 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(8px);
+            background: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(12px);
             z-index: 1000;
             justify-content: center;
             align-items: center;
-            padding: 1rem;
+            padding: 1.5rem;
         }
 
         .modal-content {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            max-width: 800px;
+            max-width: 650px;
             width: 100%;
-            padding: 2rem;
+            padding: 2.5rem;
             position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
             text-align: center;
         }
 
         .modal-close {
             position: absolute;
-            top: 1rem;
-            right: 1.25rem;
-            font-size: 1.5rem;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-size: 1.75rem;
             color: var(--text-muted);
             cursor: pointer;
             transition: color 0.2s;
@@ -436,25 +493,30 @@
             color: var(--primary);
         }
 
-        .cert-preview {
-            width: 100%;
-            height: 450px;
-            border-radius: 8px;
-            margin: 1.25rem 0;
-            border: 1px solid var(--border);
-            background: #ffffff;
+        .doc-preview-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px dashed var(--primary);
+            padding: 2.5rem 1.5rem;
+            border-radius: var(--radius);
+            margin: 1.75rem 0;
+        }
+
+        .doc-preview-card i {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
 
         footer {
             text-align: center;
-            padding: 2rem 0;
+            padding: 2.5rem 0;
             border-top: 1px solid var(--border);
             color: var(--text-muted);
             font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.25rem; }
             nav ul { display: none; }
         }
     </style>
@@ -475,15 +537,17 @@
 
     <div class="container">
 
+        <!-- Colorful Hero Section -->
         <div class="hero" id="about">
             <h1>Srinivas Bandaru</h1>
             <p class="tagline">Data & Business Analyst specializing in SQL, PostgreSQL, MS SQL Server, Power BI, Python, and Database Architecture.</p>
             <div class="btn-group">
-                <a href="mailto:srinivasbandaru.bs@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+                <a href="mailto:srinivasbandaru.bs@gmail.com" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Get In Touch</a>
                 <a href="https://www.linkedin.com/in/srinivasbandaru5/" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
             </div>
         </div>
 
+        <!-- Metric Highlights -->
         <div class="highlights">
             <div class="stat-card">
                 <div class="number">800+</div>
@@ -495,7 +559,7 @@
             </div>
             <div class="stat-card">
                 <div class="number">30%</div>
-                <div class="label">Backup Time Reduced</div>
+                <div class="label">Backup Runtime Reduced</div>
             </div>
             <div class="stat-card">
                 <div class="number">20%</div>
@@ -503,41 +567,43 @@
             </div>
         </div>
 
+        <!-- Accomplishments Section -->
         <section id="accomplishments">
-            <h2><i class="fa-solid fa-trophy" style="color:var(--gold);"></i> Major Accomplishments & Honors <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">(Click card to view document)</span></h2>
+            <h2><i class="fa-solid fa-trophy" style="color:var(--gold);"></i> Accomplishments & Awards <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">(Click card to view document)</span></h2>
             <div class="accomplishments-grid">
                 
                 <div class="acc-card" onclick="openModal('DXC Champs Award – FY24 Q4', 'DXC Technology Leadership Recognition', 'website/DXC_Q4_Champs_Award.pdf')">
                     <i class="fa-solid fa-award acc-icon"></i>
                     <h3>DXC Champs Award (FY24 Q4)</h3>
                     <p>Recognized for extraordinary contributions, driving customer delight, and establishing service excellence.</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Award Document</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Document</span>
                 </div>
 
                 <div class="acc-card" onclick="openModal('DXC Champs Award – FY24 Q2', 'DXC Technology Leadership Recognition', 'website/Srinivas Bandaru - DXC Q2 Champs Award.pdf')">
                     <i class="fa-solid fa-award acc-icon"></i>
                     <h3>DXC Champs Award (FY24 Q2)</h3>
                     <p>Awarded for outstanding system administration performance and commitment to high-impact account operations.</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Award Document</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Document</span>
                 </div>
 
-                <div class="acc-card" onclick="openModal('Year-End Review: Exceptional Impact Rating', 'DXC Technology Annual Performance Appraisal', 'website/Year-End_Overall_Category_and_Comments.pdf')">
+                <div class="acc-card" onclick="openModal('Year-End Review: Exceptional Impact Rating', 'DXC Technology Performance Appraisal', 'website/Year-End_Overall_Category_and_Comments.pdf')">
                     <i class="fa-solid fa-star acc-icon"></i>
-                    <h3>"Exceptional Impact" Performance Rating</h3>
+                    <h3>"Exceptional Impact" Rating</h3>
                     <p>Evaluated as exceeding all performance expectations for backlog reduction planning, 100% SLA compliance, and zero human errors across 800+ tickets.</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Performance Review</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Performance Review</span>
                 </div>
 
                 <div class="acc-card" onclick="openModal('Data Science Internship Completion', 'Plot My Data / 1Stop Projects', 'website/InternshipProjectCompletion.pdf')">
                     <i class="fa-solid fa-diagram-project acc-icon"></i>
                     <h3>Data Science Project Completion</h3>
                     <p>Successfully delivered projects covering Parkinson's Disease detection, Performance prediction modeling, and Anomaly/Fake News detection.</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Project Completion</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Project Completion</span>
                 </div>
 
             </div>
         </section>
 
+        <!-- Technical Skills Section -->
         <section id="skills">
             <h2><i class="fa-solid fa-code"></i> Technical Skills</h2>
             <div class="skills-wrapper">
@@ -573,6 +639,7 @@
             </div>
         </section>
 
+        <!-- Work Experience Section -->
         <section id="experience">
             <h2><i class="fa-solid fa-briefcase"></i> Work Experience</h2>
 
@@ -608,6 +675,7 @@
             </div>
         </section>
 
+        <!-- Certifications Section -->
         <section id="certifications">
             <h2><i class="fa-solid fa-certificate"></i> Verified Certifications <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">(Click card to view certificate)</span></h2>
             
@@ -617,82 +685,83 @@
                     <i class="fa-brands fa-google cert-icon"></i>
                     <h3>Google Analytics Certified</h3>
                     <p>Web Analytics, User Behavior Tracking, & Measurement</p>
-                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Database Design', 'DataCamp (Issued Feb 2026)', 'website/Database design_Srinivas bandaru.pdf')">
                     <i class="fa-solid fa-database cert-icon"></i>
                     <h3>Database Design</h3>
                     <p>Data Modeling, Normalization, & Relational Architecture</p>
-                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Creating PostgreSQL Databases', 'DataCamp (Issued Nov 2025)', 'website/Srinivasb_Creating PostgreSQL Databases.pdf')">
                     <i class="fa-solid fa-server cert-icon"></i>
                     <h3>PostgreSQL Database Creation</h3>
                     <p>PostgreSQL Schema Design, DDL/DML, & Database Mgmt</p>
-                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Microsoft SQL Server 2019 Essential Training', 'LinkedIn Learning (Issued Oct 2025)', 'website/Srinivas Bandaru_CertificateOfCompletion_Microsoft SQL Server 2019 Essential Training.pdf')">
                     <i class="fa-solid fa-database cert-icon"></i>
                     <h3>MS SQL Server 2019</h3>
                     <p>T-SQL Querying, Database Administration, & Storage</p>
-                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Learning Relational Databases', 'LinkedIn Learning (Issued Oct 2025)', 'website/Srinivas Bandaru_CertificateOfCompletion_Learning Relational Databases.pdf')">
                     <i class="fa-solid fa-network-wired cert-icon"></i>
                     <h3>Learning Relational Databases</h3>
                     <p>Relational Database Theory, Keys, & Normal Form</p>
-                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Business Analytics Foundations', 'LinkedIn Learning (Issued Jan 2026)', 'website/CertificateOfCompletion_Business Analytics Foundations Descriptive Exploratory and Explanatory Analytics (2).pdf')">
                     <i class="fa-solid fa-chart-line cert-icon"></i>
                     <h3>Business Analytics Foundations</h3>
                     <p>Descriptive, Exploratory, and Explanatory Data Analytics</p>
-                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Excel: Power Query for Beginners', 'LinkedIn Learning (Issued May 2026)', 'website/CertificateOfCompletion_Excel Power Query for Beginners 2021.pdf')">
                     <i class="fa-solid fa-file-excel cert-icon"></i>
                     <h3>Excel Power Query</h3>
                     <p>Data Cleaning, Transformation, & Automated ETL Pipelines</p>
-                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Excel BI: Power Pivot, DAX & Data Modeling', 'LinkedIn Learning (Issued May 2026)', 'website/CertificateOfCompletion_Excel Business Intelligence Power Pivot DAX and Data Modeling.pdf')">
                     <i class="fa-solid fa-chart-pie cert-icon"></i>
                     <h3>Excel PowerPivot & DAX</h3>
                     <p>Complex Data Modeling, Measures, & BI Dashboards</p>
-                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Excel: Using Solver for Decision Analysis', 'LinkedIn Learning (Issued May 2026)', 'website/CertificateOfCompletion_Excel Using Solver for Decision Analysis.pdf')">
                     <i class="fa-solid fa-calculator cert-icon"></i>
                     <h3>Excel Solver for Decision Analysis</h3>
                     <p>Optimization Models, Linear Programming, & Business Scenarios</p>
-                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Oracle Cloud Infrastructure 2023 Certified Foundations Associate', 'Oracle Certified', 'website/OCI 2023 certified foundations associate- Oracle eCertificate (1).pdf')">
                     <i class="fa-solid fa-cloud cert-icon"></i>
                     <h3>Oracle Cloud Associate (OCI 2023)</h3>
                     <p>OCI Infrastructure Architecture, Networking, & Security</p>
-                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Oracle Cloud Infrastructure 2022 Certified Foundations Associate', 'Oracle Certified', 'website/OCI 2022 certified foundations associate eCertificate.pdf')">
                     <i class="fa-solid fa-cloud cert-icon"></i>
                     <h3>Oracle Cloud Associate (OCI 2022)</h3>
                     <p>Cloud Foundation Concepts & Infrastructure Management</p>
-                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-external-link"></i> View Certificate</span>
                 </div>
 
             </div>
         </section>
 
+        <!-- Education Section -->
         <section id="education">
             <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
 
@@ -723,17 +792,19 @@
 
     </div>
 
+    <!-- Modal Overlay -->
     <div class="modal" id="certModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
-            <h3 id="modalTitle" style="color:var(--text-main); font-size:1.3rem;">Document Title</h3>
-            <p id="modalSub" style="color:var(--accent); font-size:0.9rem; margin-top:0.25rem;">Details</p>
+            <h3 id="modalTitle" style="color:var(--text-main); font-size:1.4rem;">Document Title</h3>
+            <p id="modalSub" style="color:var(--primary); font-size:0.95rem; margin-top:0.25rem;">Details</p>
             
-            <div id="modalBody"></div>
-
-            <div style="margin-top:1rem;">
+            <div class="doc-preview-card">
+                <i class="fa-solid fa-file-pdf"></i>
+                <h4 style="margin-bottom:0.5rem; color:var(--text-main);">Verified Official Document</h4>
+                <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1.5rem;">Click below to open the complete document in a high-resolution tab.</p>
                 <a id="modalDownloadLink" href="#" target="_blank" class="btn btn-primary">
-                    <i class="fa-solid fa-external-link"></i> Open PDF in New Tab
+                    <i class="fa-solid fa-external-link"></i> Open Official Verified PDF
                 </a>
             </div>
         </div>
@@ -744,13 +815,9 @@
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalSub').innerText = sub;
             
-            // Clean relative URL construction for GitHub Pages
+            // Clean relative path URL encoding for GitHub Pages
             const cleanUrl = fileUrl.split('/').map(part => encodeURIComponent(part)).join('/');
-
             document.getElementById('modalDownloadLink').href = cleanUrl;
-
-            const modalBody = document.getElementById('modalBody');
-            modalBody.innerHTML = `<iframe src="${cleanUrl}" class="cert-preview" frameborder="0"></iframe>`;
 
             document.getElementById('certModal').style.display = 'flex';
         }
