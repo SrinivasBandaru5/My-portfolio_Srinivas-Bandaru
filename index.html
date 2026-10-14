@@ -447,6 +447,7 @@
             box-shadow: 0 0 20px var(--cyan-glow);
         }
 
+        /* Modal Overlay & High-Res Document Viewer */
         .modal {
             display: none;
             position: fixed;
@@ -466,9 +467,9 @@
             background: rgba(15, 23, 42, 0.95);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            max-width: 600px;
+            max-width: 850px;
             width: 100%;
-            padding: 2.5rem 2rem;
+            padding: 2rem;
             position: relative;
             box-shadow: 0 30px 60px rgba(0,0,0,0.8);
             text-align: center;
@@ -488,18 +489,13 @@
             color: var(--cyan);
         }
 
-        .doc-badge-card {
-            background: rgba(30, 41, 59, 0.8);
-            border: 1px dashed var(--cyan);
-            padding: 2.5rem 1.5rem;
-            border-radius: var(--radius);
-            margin: 1.75rem 0;
-        }
-
-        .doc-badge-card i {
-            font-size: 3.5rem;
-            color: var(--cyan);
-            margin-bottom: 1rem;
+        .doc-frame {
+            width: 100%;
+            height: 520px;
+            border-radius: 10px;
+            margin: 1.25rem 0;
+            border: 1px solid var(--border);
+            background: #ffffff;
         }
 
         footer {
@@ -571,28 +567,28 @@
                     <i class="fa-solid fa-award acc-icon"></i>
                     <h3>DXC Champs Award (FY24 Q4)</h3>
                     <p>Recognized for extraordinary contributions, driving customer delight, and establishing service excellence.</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Verified Document</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Document Preview</span>
                 </div>
 
                 <div class="acc-card" onclick="openModal('DXC Champs Award – FY24 Q2', 'DXC Technology Leadership Recognition', 'website/Srinivas Bandaru - DXC Q2 Champs Award.pdf')">
                     <i class="fa-solid fa-award acc-icon"></i>
                     <h3>DXC Champs Award (FY24 Q2)</h3>
                     <p>Awarded for outstanding system administration performance and commitment to high-impact account operations.</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Verified Document</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Document Preview</span>
                 </div>
 
                 <div class="acc-card" onclick="openModal('Year-End Review: Exceptional Impact Rating', 'DXC Technology Performance Appraisal', 'website/Year-End_Overall_Category_and_Comments.pdf')">
                     <i class="fa-solid fa-star acc-icon"></i>
                     <h3>"Exceptional Impact" Rating</h3>
                     <p>Evaluated as exceeding all performance expectations for backlog reduction planning, 100% SLA compliance, and zero human errors across 800+ tickets.</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Performance Review</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Performance Review</span>
                 </div>
 
                 <div class="acc-card" onclick="openModal('Data Science Internship Completion', 'Plot My Data / 1Stop Projects', 'website/InternshipProjectCompletion.pdf')">
                     <i class="fa-solid fa-diagram-project acc-icon"></i>
                     <h3>Data Science Project Completion</h3>
                     <p>Successfully delivered projects covering Parkinson's Disease detection, Performance prediction modeling, and Anomaly/Fake News detection.</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Project Completion</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Project Completion</span>
                 </div>
 
             </div>
@@ -677,77 +673,77 @@
                     <i class="fa-brands fa-google cert-icon"></i>
                     <h3>Google Analytics Certified</h3>
                     <p>Web Analytics, User Behavior Tracking, & Measurement</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Database Design', 'DataCamp (Issued Feb 2026)', 'website/Database design_Srinivas bandaru.pdf')">
                     <i class="fa-solid fa-database cert-icon"></i>
                     <h3>Database Design</h3>
                     <p>Data Modeling, Normalization, & Relational Architecture</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Creating PostgreSQL Databases', 'DataCamp (Issued Nov 2025)', 'website/Srinivasb_Creating PostgreSQL Databases.pdf')">
                     <i class="fa-solid fa-server cert-icon"></i>
                     <h3>PostgreSQL Database Creation</h3>
                     <p>PostgreSQL Schema Design, DDL/DML, & Database Mgmt</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Microsoft SQL Server 2019 Essential Training', 'LinkedIn Learning (Issued Oct 2025)', 'website/Srinivas Bandaru_CertificateOfCompletion_Microsoft SQL Server 2019 Essential Training.pdf')">
                     <i class="fa-solid fa-database cert-icon"></i>
                     <h3>MS SQL Server 2019</h3>
                     <p>T-SQL Querying, Database Administration, & Storage</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Learning Relational Databases', 'LinkedIn Learning (Issued Oct 2025)', 'website/Srinivas Bandaru_CertificateOfCompletion_Learning Relational Databases.pdf')">
                     <i class="fa-solid fa-network-wired cert-icon"></i>
                     <h3>Learning Relational Databases</h3>
                     <p>Relational Database Theory, Keys, & Normal Form</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Business Analytics Foundations', 'LinkedIn Learning (Issued Jan 2026)', 'website/CertificateOfCompletion_Business Analytics Foundations Descriptive Exploratory and Explanatory Analytics (2).pdf')">
                     <i class="fa-solid fa-chart-line cert-icon"></i>
                     <h3>Business Analytics Foundations</h3>
                     <p>Descriptive, Exploratory, and Explanatory Data Analytics</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Excel: Power Query for Beginners', 'LinkedIn Learning (Issued May 2026)', 'website/CertificateOfCompletion_Excel Power Query for Beginners 2021.pdf')">
                     <i class="fa-solid fa-file-excel cert-icon"></i>
                     <h3>Excel Power Query</h3>
                     <p>Data Cleaning, Transformation, & Automated ETL Pipelines</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Excel BI: Power Pivot, DAX & Data Modeling', 'LinkedIn Learning (Issued May 2026)', 'website/CertificateOfCompletion_Excel Business Intelligence Power Pivot DAX and Data Modeling.pdf')">
                     <i class="fa-solid fa-chart-pie cert-icon"></i>
                     <h3>Excel PowerPivot & DAX</h3>
                     <p>Complex Data Modeling, Measures, & BI Dashboards</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Excel: Using Solver for Decision Analysis', 'LinkedIn Learning (Issued May 2026)', 'website/CertificateOfCompletion_Excel Using Solver for Decision Analysis.pdf')">
                     <i class="fa-solid fa-calculator cert-icon"></i>
                     <h3>Excel Solver for Decision Analysis</h3>
                     <p>Optimization Models, Linear Programming, & Business Scenarios</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Oracle Cloud Infrastructure 2023 Certified Foundations Associate', 'Oracle Certified', 'website/OCI 2023 certified foundations associate- Oracle eCertificate (1).pdf')">
                     <i class="fa-solid fa-cloud cert-icon"></i>
                     <h3>Oracle Cloud Associate (OCI 2023)</h3>
                     <p>OCI Infrastructure Architecture, Networking, & Security</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
                 <div class="cert-card" onclick="openModal('Oracle Cloud Infrastructure 2022 Certified Foundations Associate', 'Oracle Certified', 'website/OCI 2022 certified foundations associate eCertificate.pdf')">
                     <i class="fa-solid fa-cloud cert-icon"></i>
                     <h3>Oracle Cloud Associate (OCI 2022)</h3>
                     <p>Cloud Foundation Concepts & Infrastructure Management</p>
-                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Certificate</span>
+                    <span class="click-hint"><i class="fa-solid fa-eye"></i> View Certificate</span>
                 </div>
 
             </div>
@@ -783,18 +779,18 @@
 
     </div>
 
+    <!-- Modal View Frame -->
     <div class="modal" id="certModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
             <h3 id="modalTitle" style="color:var(--text-main); font-size:1.35rem;">Document Title</h3>
             <p id="modalSub" style="color:var(--cyan); font-size:0.92rem; margin-top:0.25rem;">Details</p>
             
-            <div class="doc-badge-card">
-                <i class="fa-solid fa-file-pdf"></i>
-                <h4 style="margin-bottom:0.5rem; color:var(--text-main);">Verified Official Document</h4>
-                <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1.5rem;">Click below to open the complete document in high resolution.</p>
+            <iframe id="docIframe" class="doc-frame" src=""></iframe>
+
+            <div style="margin-top:0.75rem;">
                 <a id="modalDownloadLink" href="#" target="_blank" class="btn btn-cyan">
-                    <i class="fa-solid fa-external-link"></i> Open Official PDF Document
+                    <i class="fa-solid fa-external-link"></i> Open Full High-Res Document
                 </a>
             </div>
         </div>
@@ -866,13 +862,16 @@
             document.getElementById('modalSub').innerText = sub;
             
             const cleanUrl = fileUrl.split('/').map(part => encodeURIComponent(part)).join('/');
+            
             document.getElementById('modalDownloadLink').href = cleanUrl;
+            document.getElementById('docIframe').src = cleanUrl + '#toolbar=0&navpanes=0';
 
             document.getElementById('certModal').style.display = 'flex';
         }
 
         function closeModal() {
             document.getElementById('certModal').style.display = 'none';
+            document.getElementById('docIframe').src = '';
         }
 
         window.onclick = function(event) {
