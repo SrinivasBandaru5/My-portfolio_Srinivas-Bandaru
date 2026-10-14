@@ -41,7 +41,6 @@
             position: relative;
         }
 
-        /* Canvas Particle Background */
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -52,7 +51,6 @@
             pointer-events: none;
         }
 
-        /* Cyber Navbar */
         nav {
             position: sticky;
             top: 0;
@@ -88,7 +86,6 @@
             font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.25s;
-            position: relative;
         }
 
         nav a:hover {
@@ -102,7 +99,6 @@
             padding: 3rem 1.5rem 6rem 1.5rem;
         }
 
-        /* Futuristic Hero Banner */
         .hero {
             text-align: center;
             padding: 5rem 2rem;
@@ -191,7 +187,6 @@
             box-shadow: 0 8px 35px rgba(168, 85, 247, 0.6);
         }
 
-        /* Metric Cards */
         .highlights {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -207,7 +202,6 @@
             text-align: center;
             backdrop-filter: blur(12px);
             transition: all 0.35s ease;
-            position: relative;
         }
 
         .stat-card:hover {
@@ -249,7 +243,6 @@
             color: var(--cyan);
         }
 
-        /* Accomplishments Grid */
         .accomplishments-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -299,7 +292,6 @@
             font-weight: 700;
         }
 
-        /* Experience Cards */
         .card {
             background: var(--surface-card);
             border: 1px solid var(--border);
@@ -365,7 +357,6 @@
             font-size: 0.9rem;
         }
 
-        /* Certifications Grid */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -415,7 +406,6 @@
             font-weight: 700;
         }
 
-        /* Skill Pills */
         .skills-wrapper {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -459,7 +449,6 @@
             box-shadow: 0 0 20px var(--cyan-glow);
         }
 
-        /* Modal Overlay & Google Docs PDF Embed */
         .modal {
             display: none;
             position: fixed;
@@ -501,7 +490,7 @@
             color: var(--cyan);
         }
 
-        .cert-iframe {
+        .cert-object {
             width: 100%;
             height: 480px;
             border-radius: 10px;
@@ -526,7 +515,6 @@
 </head>
 <body>
 
-    <!-- Particle System Canvas -->
     <canvas id="particles-canvas"></canvas>
 
     <nav>
@@ -543,7 +531,6 @@
 
     <div class="container">
 
-        <!-- Hero Section -->
         <div class="hero" id="about">
             <div class="hero-badge"><i class="fa-solid fa-bolt"></i> Open to Data & Business Analyst Roles</div>
             <h1>Srinivas Bandaru</h1>
@@ -554,7 +541,6 @@
             </div>
         </div>
 
-        <!-- Metric Cards -->
         <div class="highlights">
             <div class="stat-card">
                 <div class="number">800+</div>
@@ -574,7 +560,6 @@
             </div>
         </div>
 
-        <!-- Major Accomplishments Section -->
         <section id="accomplishments">
             <h2><i class="fa-solid fa-trophy" style="color:var(--gold);"></i> Accomplishments & Honors <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">(Click card to view document)</span></h2>
             <div class="accomplishments-grid">
@@ -610,7 +595,6 @@
             </div>
         </section>
 
-        <!-- Technical Skills Section -->
         <section id="skills">
             <h2><i class="fa-solid fa-code"></i> Technical Skills</h2>
             <div class="skills-wrapper">
@@ -646,7 +630,6 @@
             </div>
         </section>
 
-        <!-- Work Experience Section -->
         <section id="experience">
             <h2><i class="fa-solid fa-briefcase"></i> Work Experience</h2>
 
@@ -682,7 +665,6 @@
             </div>
         </section>
 
-        <!-- Certifications Section -->
         <section id="certifications">
             <h2><i class="fa-solid fa-certificate"></i> Verified Certifications <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">(Click card to view certificate)</span></h2>
             
@@ -768,7 +750,6 @@
             </div>
         </section>
 
-        <!-- Education Section -->
         <section id="education">
             <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
 
@@ -799,28 +780,23 @@
 
     </div>
 
-    <!-- Modal Overlay -->
     <div class="modal" id="certModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
             <h3 id="modalTitle" style="color:var(--text-main); font-size:1.35rem;">Document Title</h3>
             <p id="modalSub" style="color:var(--cyan); font-size:0.92rem; margin-top:0.25rem;">Details</p>
             
-            <div id="modalBody">
-                <iframe id="pdfIframe" class="cert-iframe" src=""></iframe>
-            </div>
+            <div id="modalBody"></div>
 
             <div style="margin-top:1rem;">
                 <a id="modalDownloadLink" href="#" target="_blank" class="btn btn-cyan">
-                    <i class="fa-solid fa-external-link"></i> Open Direct Raw PDF
+                    <i class="fa-solid fa-external-link"></i> Open Direct PDF File
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Particle System & Modal Scripts -->
     <script>
-        // Interactive Canvas Particles System
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -881,22 +857,23 @@
         }
         animateParticles();
 
-        // Modal Functionality using Google Docs Viewer Embed
         function openModal(title, sub, fileUrl) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalSub').innerText = sub;
             
-            const rawUrl = 'https://srinivasbandaru5.github.io/My-portfolio_Srinivas-Bandaru/' + fileUrl;
+            const cleanUrl = fileUrl.split('/').map(part => encodeURIComponent(part)).join('/');
             
-            document.getElementById('modalDownloadLink').href = rawUrl;
-            document.getElementById('pdfIframe').src = 'https://docs.google.com/viewer?url=' + encodeURIComponent(rawUrl) + '&embedded=true';
+            document.getElementById('modalDownloadLink').href = cleanUrl;
+
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `<object data="${cleanUrl}" type="application/pdf" class="cert-object"><p style="color:var(--text-muted); padding:2rem;">Your browser cannot render inline PDFs directly. Click the button below to view the official PDF.</p></object>`;
 
             document.getElementById('certModal').style.display = 'flex';
         }
 
         function closeModal() {
             document.getElementById('certModal').style.display = 'none';
-            document.getElementById('pdfIframe').src = '';
+            document.getElementById('modalBody').innerHTML = '';
         }
 
         window.onclick = function(event) {
