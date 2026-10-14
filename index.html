@@ -395,7 +395,6 @@
             font-weight: 500;
         }
 
-        /* Modal Settings */
         .modal {
             display: none;
             position: fixed;
@@ -415,7 +414,7 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            max-width: 750px;
+            max-width: 800px;
             width: 100%;
             padding: 2rem;
             position: relative;
@@ -439,7 +438,7 @@
 
         .cert-preview {
             width: 100%;
-            height: 400px;
+            height: 450px;
             border-radius: 8px;
             margin: 1.25rem 0;
             border: 1px solid var(--border);
@@ -745,12 +744,13 @@
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalSub').innerText = sub;
             
+            // Clean relative URL construction for GitHub Pages
             const cleanUrl = fileUrl.split('/').map(part => encodeURIComponent(part)).join('/');
 
             document.getElementById('modalDownloadLink').href = cleanUrl;
 
             const modalBody = document.getElementById('modalBody');
-            modalBody.innerHTML = `<embed src="${cleanUrl}" type="application/pdf" class="cert-preview" />`;
+            modalBody.innerHTML = `<iframe src="${cleanUrl}" class="cert-preview" frameborder="0"></iframe>`;
 
             document.getElementById('certModal').style.display = 'flex';
         }
