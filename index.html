@@ -209,4 +209,306 @@
             padding: 1.5rem;
             position: relative;
             cursor: pointer;
-            transition: all 0.25
+            transition: all 0.25s ease;
+        }
+
+        .acc-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(251, 191, 36, 0.15);
+        }
+
+        .acc-card i.acc-icon {
+            font-size: 1.75rem;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .acc-card h3 {
+            font-size: 1.15rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .acc-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .acc-card .click-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .card-sub {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background: rgba(148, 163, 184, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        ul.points {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.points li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-muted);
+        }
+
+        ul.points li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .cert-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px var(--primary-glow);
+        }
+
+        .cert-card i.cert-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .cert-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-card .click-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            max-width: 750px;
+            width: 100%;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        .cert-preview {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            margin: 1.25rem 0;
+            border: 1px solid var(--border);
+            background: #ffffff;
+        }
+
+        .skills-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .skill-category {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .pill {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Srinivas Bandaru</a>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#accomplishments">Accomplishments</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#education">Education</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <div class="hero" id="about">
+            <h1>Srinivas Bandaru</h1>
+            <p class="tagline">Data & Business Analyst specializing in SQL, PostgreSQL, MS SQL Server, Power BI, Python, and Database Architecture.</p>
+            <div class="btn-group">
+                <a href="mailto:srinivasbandaru.bs@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+                <a href="https://www.linkedin.com/in/srinivasbandaru5/" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="highlights">
+            <div class="stat-card">
+                <div class="number">800+</div>
+                <div class="label">Tickets Closed (0 Errors)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">100%</div>
+                <div class="label">SLA TTR/TTO Compliance</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">30%</div>
+                <div class="label">Backup Time Reduced</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">20%</div>
+                <div class="label">Downtime Reduced</div>
+            </div>
+        </div>
+
+        <section id="accomplishments">
+            <h2><i class="fa-solid fa-trophy" style="color:var(--gold);"></i> Major Accomplishments & Honors <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">(Click card to view document)</span></h2>
+            <div class="accomplishments-grid">
+                
+                <div class="acc-card" onclick="openModal('DXC Champs Award – FY24 Q4', 'DXC Technology Leadership Recognition', 'website/DXC_Q4_Champs_Award.pdf')">
+                    <i class="fa-solid fa-award acc-icon"></i>
+                    <h3>DXC Champs Award (FY24 Q4)</h3>
+                    <p>Recognized for extraordinary contributions, driving customer delight, and establishing service excellence.</p>
+                    <span class="click-hint"><i class="fa-solid fa-file-pdf"></i> View Award Document</span>
+                </div>
+
+                <div class="acc-card" onclick="openModal('DXC Champs Award – FY24 Q2', 'DXC Technology Leadership Recognition', 'website/Srinivas Bandaru - DX
