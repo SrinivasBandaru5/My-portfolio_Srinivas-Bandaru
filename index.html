@@ -447,7 +447,6 @@
             box-shadow: 0 0 20px var(--cyan-glow);
         }
 
-        /* Modal Overlay with On-Screen PDF Frame */
         .modal {
             display: none;
             position: fixed;
@@ -862,12 +861,11 @@
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalSub').innerText = sub;
             
-            // Check both root and website/ folder paths automatically
-            const encodedFile = encodeURIComponent(fileName);
-            const relativePath = 'website/' + encodedFile;
+            // Point directly to root directory files
+            const encodedPath = encodeURIComponent(fileName);
 
-            document.getElementById('modalDownloadLink').href = relativePath;
-            document.getElementById('pdfIframe').src = relativePath + '#toolbar=0&navpanes=0';
+            document.getElementById('modalDownloadLink').href = encodedPath;
+            document.getElementById('pdfIframe').src = encodedPath + '#toolbar=0&navpanes=0';
 
             document.getElementById('certModal').style.display = 'flex';
         }
